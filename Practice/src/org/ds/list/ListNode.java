@@ -14,8 +14,9 @@ public ListNode getNext() {
 public void setNext(ListNode next) {
 	this.next = next;
 }
-private ListNode next;
+public ListNode next;
 public ListNode(int data) {
 	this.data= data;
+	next=null;
 }
 }
