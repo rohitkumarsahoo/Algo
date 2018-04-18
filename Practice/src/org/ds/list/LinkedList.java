@@ -36,10 +36,14 @@ package org.ds.list;
 	   int length = 1;
 	   if(head==null) {
 		   head=newNode;
-		   }	   
+		   }	  
+	   if(position ==0) {
+		   newNode.next=head;
+		   return newNode;
+	   }
 	   if(head!= null) {
 		  tempnode = head;
-		  while((tempnode.next!=null)&& length<position) {
+		  while((tempnode!=null)&& length<position) {
 			  length=length+1;
 			  tempnode=tempnode.next;
 		  }
@@ -94,6 +98,22 @@ package org.ds.list;
 	   }
 	   return temp2;
    }
+   public Node reverseKNode(Node node,int pos) {
+	   Node head=node;
+	   Node temp=null,prev=null;
+	   int length=0;
+	   if(head==null) 
+		   return null;
+		   while((head!=null)&&length<pos){
+			   temp=head.next;
+			   head.next=prev;
+			   prev=head;
+			   head =temp;
+			   length++;
+		   }
+		   node.next=reverseKNode(head, pos);
+		   return prev;		   
+   }   
    public static void main(String[] args) {
 		Node head= new Node(0);
 		head.next= new Node(1);
@@ -102,10 +122,10 @@ package org.ds.list;
 		head.next.next.next.next= new Node(4);
 		head.next.next.next.next.next= new Node(5);		
 		LinkedList ll= new LinkedList();
-		 head=ll.reversePair(head);
-		//ll.insertAny(head,6, 3);
+		head=ll.reverseKNode(head, 3);
+		//head=ll.reversePair(head);		
 		ll.show(head);
-		//System.out.println(ll.length(head));
+		
 		
 }
  }
