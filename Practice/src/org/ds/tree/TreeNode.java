@@ -34,8 +34,8 @@ public class TreeNode {
 				if(curr.right!=null)
 					st.push(curr.right);
 			}else {
-				//res.add(curr);
-				System.out.println(curr.data);
+				res.add(curr);
+				//System.out.println(curr.data);
 				st.pop();
 			}
 			prev=curr;
@@ -48,8 +48,8 @@ public class TreeNode {
 	  s.push(root);
 	  while(!s.isEmpty()) {
 		  Tree temp= s.pop();
-		  //res.add(temp.data);
-		  System.out.println(temp.data);
+		  res.add(temp.data);
+		  //System.out.println(temp.data);
 		  if(temp.right!=null)
 			  s.push(temp.right);
 		  if(temp.left!= null)
@@ -60,7 +60,7 @@ public class TreeNode {
   public void levelOrder(Tree root) {
 	  Queue<Tree> q= new LinkedList<Tree>();	  
 	  q.offer(root);
-	  int length= 1;
+	  //int length= 1;
 	  q.offer(null);
 	  while(!q.isEmpty())
 	  {
@@ -74,7 +74,7 @@ public class TreeNode {
 				  q.offer(curr.left);
 			  if(curr.right!= null)
 				  q.offer(curr.right);
-			  System.out.println(curr.data);
+			  System.out.print(curr.data);
 		  }
 	  }
 	  
@@ -107,7 +107,7 @@ public class TreeNode {
 		root.left.left=new Tree(4);
 		root.right.left= new Tree(6);
 		root.left.right=new Tree(5);
-		//root.right.right= new Tree(7);
+		root.right.right= new Tree(7);
 		new TreeNode().levelOrder(root);	
 		//System.out.println(new TreeNode().size(root));
 	}
